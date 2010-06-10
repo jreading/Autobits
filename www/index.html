@@ -1,0 +1,151 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+		<title>autoBits.js: a jQuery Plugin</title>
+		<script src="_js/jquery-1.3.2.min.js" type="text/javascript"></script>
+		<script src="_js/jquery.autobits.js" type="text/javascript"></script>
+		<link rel="stylesheet" type="text/css" href="autobits.css" />
+		<script type="text/javascript">
+			var optimusPrime = autoBits({
+				map: ["namedValue0", "namedValue1", "namedValue2", "namedValue3", "namedValue4", "namedValue5", "namedValue6", "namedValue7", "namedValue8", "namedValue9", "namedValue10", "namedValue11", "namedValue12"],
+				bits:0
+			});
+			var bumbleBee = autoBits({
+				map: ["namedValue0", "namedValue1", "namedValue2", "namedValue3", "namedValue4", "namedValue5", "namedValue6", "namedValue7", "namedValue8", "namedValue9", "namedValue10", "namedValue11", "namedValue12", "namedValue13", "namedValue14", "namedValue15", "namedValue16", "namedValue17", "namedValue18", "namedValue19", "namedValue20", "namedValue21", "namedValue22", "namedValue23", "namedValue24", "namedValue25", "namedValue26", "namedValue27", "namedValue28", "namedValue29", "namedValue30"],
+				debug:true,
+				bits : 0
+			});
+		</script>
+	</head>
+	<body>
+		<div id="container">
+
+		<h1>autoBits.js is a simple binary (base 2) bitwise plugin for jQuery.</h1>
+		<p>You can use it to send lots an lots of boolean values in a little package.</p>
+		<p>You can store 31 values per instance and use in a cookie, through twitter, or in a single integer column in a database.</p>
+
+		<h2>Get it</h2>
+		<div class="download">download: <a href="/_js/jquery.autobits.js">jquery.autobits.js v1.1</a><br /></div>
+		<br />
+		<h2>Usage</h2>
+<pre>
+optimusPrime = new autoBits({map: ["namedValue0", ..., "namedValue30"]});
+</pre>
+		<p><b>Methods</b></p>
+		<dl>
+			<dt>getBits()</dt>
+			<dd>gets the binary value of the bits</dd>
+			<dt>addBit(<em>namedValue</em>)</dt>
+			<dd>sets the bit for the <em>namedValue</em> from the bit map</dd>
+			<dt>removeBit(<em>namedValue</em>)</dt>
+			<dd>removes the bit for the <em>namedValue</em> from the bit map</dd>
+			<dt>isSet(<em>namedValue</em>)</dt>
+			<dd>tests to see whether <em>namedValue</em> bit is set in the binary value</dd>
+			<dt>clear()</dt>
+			<dd>sets the binary value to 0, removing all bits</dd>
+			<dt>getBooleans()</dt>
+			<dd>returns an array of boolean values from the binary value</dd>
+		</dl>
+		 <br />
+
+		<p><b>Options</b></p>
+		<dl>
+			<dt>bits</dt>
+			<dd>binary value that contains previously set bits. <em>Default is 0</em></dd>
+			<dt>map</dt>
+			<dd>array of named values that correspond to the bits in the binary value. Map can be as long as 31 values.</dd>
+			<dt>debug</dt>
+			<dd>turns on console messaging. <em>Default is false</em></dd>
+		</dl>
+
+<br />
+		<h2>Demos</h2>
+
+<pre>
+optimusPrime = autoBits({
+	map: ["namedValue0", "namedValue1", "namedValue2", "namedValue3", "namedValue4", "namedValue5", "namedValue6", "namedValue7", "namedValue8", "namedValue9", "namedValue10", "namedValue11", "namedValue12"]
+});
+</pre>
+<div class="demo">
+	<a href="javascript:alert(optimusPrime.addBit('namedValue3'))">optimusPrime.addBit('namedValue3')</a><br>
+	<a href="javascript:alert(optimusPrime.addBit('namedValue12'))">optimusPrime.addBit('namedValue12')</a><br>
+	<a href="javascript:alert(optimusPrime.removeBit('namedValue3'))">optimusPrime.removeBit('namedValue3')</a><br>
+	<a href="javascript:alert(optimusPrime.removeBit('namedValue12'))">optimusPrime.removeBit('namedValue12')</a><br>
+	<a href="javascript:alert(optimusPrime.isSet('namedValue3'))">optimusPrime.isSet('namedValue3')</a><br>
+	<a href="javascript:alert(optimusPrime.getBits())">optimusPrime.getBits()</a><br>
+	<a href="javascript:alert(optimusPrime.getBooleans())">optimusPrime.getBooleans()</a><br>
+</div>
+<br />
+<pre>
+bumbleBee = autoBits({
+	map: ["namedValue0", "namedValue1", "namedValue2", "namedValue3", "namedValue4", "namedValue5", "namedValue6", "namedValue7", "namedValue8", "namedValue9", "namedValue10", "namedValue11", "namedValue12", "namedValue13", "namedValue14", "namedValue15", "namedValue16", "namedValue17", "namedValue18", "namedValue19", "namedValue20", "namedValue21", "namedValue22", "namedValue23", "namedValue24", "namedValue25", "namedValue26", "namedValue27", "namedValue28", "namedValue29", "namedValue30"],
+	bits : 1073741832, //comes from DB, cookie, twitter, whatever
+	debug: true //look in your console
+});
+</pre>
+<div class="demo">
+	<a href="javascript:alert(bumbleBee.isSet('namedValue3'))">bumbleBee.isSet('namedValue3')</a><br>
+	<a href="javascript:alert(bumbleBee.isSet('namedValue30'))">bumbleBee.isSet('namedValue30')</a><br>
+	<a href="javascript:alert(bumbleBee.addBit('namedValue7'))">bumbleBee.addBit('namedValue7')</a><br>
+	<a href="javascript:alert(bumbleBee.removeBit('namedValue7'))">bumbleBee.removeBit('namedValue7')</a><br>
+	<a href="javascript:alert(bumbleBee.isSet('namedValue7'))">bumbleBee.isSet('namedValue7')</a><br>
+	<a href="javascript:alert(bumbleBee.isSet('notThere'))">bumbleBee.isSet('notThere')</a><br>
+	<a href="javascript:alert(bumbleBee.getBits())">bumbleBee.getBits()</a><br>
+	<a href="javascript:alert(bumbleBee.getBooleans())">bumbleBee.getBooleans()</a><br>
+</div>
+<br />
+
+<h2>More Info</h2>
+<p>Here's an example.<br />Let's say you had to store a bunch of personalization data:</p>
+
+<table>
+	<tr><td>isBorderRed</td><td>false</td></tr>
+	<tr><td>isBorderTopRed</td><td>true</td></tr>
+	<tr><td>isBorderBottomRed</td><td>true</td></tr>
+	<tr><td>isBackgroundGradient</td><td>false</td></tr>
+	<tr><td>isBackgroundImage</td><td>true</td></tr>
+	<tr><td>isBackgroundStatic</td><td>false</td></tr>
+	<tr><td>isFluid</td><td>true</td></tr>
+	<tr><td>isRadius</td><td>true</td></tr>
+	<tr><td>isThinClient</td><td>false</td></tr>
+	<tr><td>isSVG</td><td>true</td></tr>
+	<tr><td>isEmbedded</td><td>true</td></tr>
+	<tr><td>isCrawlActive</td><td>true</td></tr>
+	<tr><td>isFontAwesome</td><td>true</td></tr>
+	<tr><td>isDrunk</td><td>false</td></tr>
+	<tr><td>isNew</td><td>true</td></tr>
+	<tr><td>isDynamic</td><td>false</td></tr>
+	<tr><td>hasChildren</td><td>true</td></tr>
+	<tr><td>hasParents</td><td>false</td></tr>
+	<tr><td>hasSiblings</td><td>true</td></tr>
+	<tr><td>isOpen</td><td>false</td></tr>
+	<tr><td>isShort</td><td>false</td></tr>
+	<tr><td>isFondOfCheese</td><td>true</td></tr>
+	<tr><td>isExpired</td><td>false</td></tr>
+	<tr><td>hasUniqueID</td><td>true</td></tr>
+	<tr><td>isBlueSky</td><td>false</td></tr>
+	<tr><td>isForceEnabled</td><td>true</td></tr>
+	<tr><td>hasLasers</td><td>true</td></tr>
+	<tr><td>isNamedValue</td><td>true</td></tr>
+	<tr><td>hasCockpit</td><td>true</td></tr>
+	<tr><td>isMember</td><td>true</td></tr>
+	<tr><td>hasRights</td><td>false</td></tr>
+</table>
+<br />
+<p>Transforms into : <strong>1051025110</strong> <em>wuh-weh-wah</em></p>
+<p>Use two or three instances and suddenly you have lots of data in a few integers, so long as you have the maps. (This is nothing new, but I haven't seen this for jQuery yet.)</p>
+
+<p><strong>Read more:</strong><br /><a href="http://www.livephysics.com/ptools/bitwise-operation.php" target="_blank">http://www.livephysics.com/ptools/bitwise-operation.php</a></p>
+
+		</div>
+
+		<span><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/us/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/us/80x15.png" /></a><br /><span xmlns:dc="http://purl.org/dc/elements/1.1/" href="http://purl.org/dc/dcmitype/InteractiveResource" property="dc:title" rel="dc:type">autoBits.js</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="autobits.resonancemultimedia.com" property="cc:attributionName" rel="cc:attributionURL">John Reading</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/us/">Creative Commons Attribution-Share Alike 3.0 United States License</a>.<br />Based on a work at <a xmlns:dc="http://purl.org/dc/elements/1.1/" href="autobits.resonancemultimedia.com" rel="dc:source">autobits.resonancemultimedia.com</a>.</span>
+	<script type="text/javascript" src="http://www.google-analytics.com/ga.js"></script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-4657974-2");
+pageTracker._initData();
+pageTracker._trackPageview();
+</script>
+	</body>
+</html>
