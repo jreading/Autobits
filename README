@@ -1,0 +1,8 @@
+Author: JOhn Reading
+Version: 1.1
+Descrition: 	autoBits.js is a simple binary (base 2) bitwise plugin for jQuery. 
+		You can use it to send lots an lots of boolean values in a little package.
+		You can store 31 values per instance and use in a cookie, through twitter, 
+		or in a single integer column in a database.
+
+http://autobits.resonancemultimedia.com/
