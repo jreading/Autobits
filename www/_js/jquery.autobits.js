@@ -4,7 +4,7 @@
  * autoBits.js is licensed under a Creative Commons Attribution-Share Alike 3.0 United States License.
  * http://creativecommons.org/licenses/by-sa/3.0/us/
  *
- * Date: 4/19/10
+ * Date: 4/19/10 
  *
  * @author John Reading - Resonance Multimedia LLC
  * @version 1.1 
