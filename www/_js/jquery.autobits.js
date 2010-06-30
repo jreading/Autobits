@@ -7,7 +7,7 @@
  * Date: 4/19/10
  *
  * @author John Reading - Resonance Multimedia LLC
- * @version 1.1
+ * @version 1.1 
  * @see jQuery v1.2.6 or later
  *
  * @projectDescription autoBits.js is a simple binary (base 2) bitwise plugin for jQuery. You can use it to send lots an lots of boolean values in a little package. Requires jQuery v1.2.6 or later
