@@ -21,7 +21,7 @@
  * @example optimusPrime = autoBits();
  * @param   {Object}        options   bits, map, debug
  */
-var autoBits = function(options) {
+var autoBits = function(opts) {
 
 	if (this instanceof autoBits) {
 
@@ -30,7 +30,7 @@ var autoBits = function(options) {
 			map: [],
 			debug: false
 		};
-		var options = $.extend({}, defaults, options);
+		var options = $.extend({}, defaults, opts);
 
 
 		this.isSet = function(value) {
@@ -109,7 +109,7 @@ var autoBits = function(options) {
 				window.console.log('[jquery.autobits] ' + Array.prototype.join.call(arguments,''));
 		};
 	} else {
-		return new autoBits(options);
+		return new autoBits(opts);
 	}
 };
 
