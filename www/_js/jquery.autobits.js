@@ -38,20 +38,20 @@ var autoBits = function(opts) {
 				log('isSet: ' + value + ' not found in map');
 				return this;
 			} else {
-				binaryVal = getBinary(options.map.indexOf(value));
-				return (binaryVal & options.bits) > 0
+				var binaryVal = getBinary(options.map.indexOf(value));
+				return (binaryVal & options.bits) > 0;
 			}
 		};
 
-		this.getBooleans = function(value) {
+		this.getBooleans = function() {
 			var booleanArr = new Array;
-			for (i=0; i < options.map.length; i++) {
+			for (var i=0; i < options.map.length; i++) {
 				getBinary(i) & options.bits ? booleanArr.push(true) : booleanArr.push(false);
 			}
-			return booleanArr
+			return booleanArr;
 		};
 
-		this.getBits = function(value) {
+		this.getBits = function() {
 			log('bits: ' + options.bits );
 			return options.bits;
 		};
@@ -61,7 +61,7 @@ var autoBits = function(opts) {
 				log('addBits: ' + value + ' not found in map');
 				return this;
 			} else {
-				binaryVal = getBinary(options.map.indexOf(value));
+				var binaryVal = getBinary(options.map.indexOf(value));
 				if ((binaryVal & options.bits) > 0) {
 					log('addBits: ' + value + ' bit exists already in map. ' + options.bits);
 					return this;
@@ -78,7 +78,7 @@ var autoBits = function(opts) {
 				log('removeBits: ' + value + ' not found in map');
 				return this;
 			} else {
-				binaryVal = getBinary(options.map.indexOf(value));
+				var binaryVal = getBinary(options.map.indexOf(value));
 				if (!(binaryVal & options.bits)) {
 					log('removeBits: ' + value + ' bit doesn\'t exist in map. ' + options.bits);
 					return this;
@@ -95,7 +95,7 @@ var autoBits = function(opts) {
 			return options.bits;
 		};
 
-		this.clear = function(value) {
+		this.clear = function() {
 			options.bits = 0;
 			return options.bits;
 		};
