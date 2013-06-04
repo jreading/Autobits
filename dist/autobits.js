@@ -40,6 +40,12 @@ Randomize function, remapping and bitshifting
 
 var autoBits = function(opts) {
 
+	/**
+	* Returns whether or not a bit is set in an integer.
+	*
+	* @this {autoBits}
+	* @return {Boolean} Bit is set.
+	*/
 	this.isSet = function(value) {
 		if (options.map.indexOf(value) < 0) {
 			log('isSet: ' + value + ' not found in map');
@@ -50,6 +56,12 @@ var autoBits = function(opts) {
 		}
 	};
 
+	/**
+	* Returns an array of bit values. Length determined by map length.
+	*
+	* @this {autoBits}
+	* @return {Array} Array of bit values.
+	*/
 	this.getBooleans = function() {
 		var booleanArr = [];
 		var bit;
@@ -60,11 +72,24 @@ var autoBits = function(opts) {
 		return booleanArr;
 	};
 
+	/**
+	* Returns bit integer.
+	*
+	* @this {autoBits}
+	* @return {integer} Bit integer.
+	*/
 	this.getBits = function() {
 		log('bits: ' + options.bits );
 		return options.bits;
 	};
 
+	/**
+	* Adds a bit to integer based on named value from map.
+	*
+	* @this {autoBits}
+	* @return {integer} Returns bit integer.
+	* @return {autobits} Returns autobits instance if bit already exists or not found in map.
+	*/
 	this.addBit = function(value) {
 		if (options.map.indexOf(value) < 0) {
 			log('addBits: ' + value + ' not found in map');
@@ -82,6 +107,13 @@ var autoBits = function(opts) {
 		}
 	};
 
+	/**
+	* Removes a bit from integer based on named value from map.
+	*
+	* @this {autoBits}
+	* @return {integer} Returns bit integer.
+	* @return {autobits} Returns autobits instance if bit doesn't exists or not found in map.
+	*/
 	this.removeBit = function(value) {
 		if (options.map.indexOf(value) < 0) {
 			log('removeBits: ' + value + ' not found in map');
@@ -99,25 +131,66 @@ var autoBits = function(opts) {
 		}
 	};
 
+	/**
+	* TODO: Randomizes the bits based on the map.
+	*
+	* @this {autoBits}
+	* @return {integer} Returns bit integer.
+	*/
 	this.randomize = function() {
 		log('randomize: ' + options.bits);
 		return options.bits;
 	};
 
+	/**
+	* TODO: Remaps the bits based on the bits entered.
+	*
+	* @this {autoBits}
+	* @return {integer} Returns bit integer.
+	*/
+	this.remap = function() {
+		log('remap: ' + options.bits);
+		return options.bits;
+	};
+
+	/**
+	* Clears the bit integer.
+	*
+	* @this {autoBits}
+	* @return {integer} Returns bit integer (0).
+	*/
 	this.clear = function() {
 		options.bits = 0;
 		return options.bits;
 	};
 
+
+	/**
+	* Gets the binary value of the named value in the map.
+	*
+	* @private
+	* @return {integer} Returns bit value.
+	*/
 	var getBinary = function(value) {
 		return Math.pow(2,value);
 	};
 
+
+	/**
+	* Console log messages based on debug option.
+	*
+	* @private
+	*/
 	var log = function() {
 		if (options.debug && window.console && window.console.log)
-			window.console.log('[jquery.autobits] ' + Array.prototype.join.call(arguments,''));
+			console.log('[autobits] ' + arguments);
 	};
 
+	/**
+	* Extends objects to provide defaults and options.
+	*
+	* @private
+	*/
 	var extend = function(obj) {
 		var args = Array.prototype.slice.call(arguments, 1);
 		for (var i = 0; i < args.length;i++) {
@@ -130,12 +203,22 @@ var autoBits = function(opts) {
 		return obj;
 	};
 
+	/**
+	* Default configuration.
+	*
+	* @private
+	*/
 	var defaults = {
 		bits: 0,
 		map: [],
 		debug: false
 	};
 
+	/**
+	* Options passed in during instantiation.
+	*
+	* @private
+	*/
 	var options = extend({}, defaults, opts);
 
 };

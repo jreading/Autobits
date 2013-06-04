@@ -115,7 +115,7 @@ var autoBits = function(opts) {
 
 	var log = function() {
 		if (options.debug && window.console && window.console.log)
-			window.console.log('[jquery.autobits] ' + Array.prototype.join.call(arguments,''));
+			window.console.log('[autobits] ' + arguments);
 	};
 
 	var extend = function(obj) {
