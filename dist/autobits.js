@@ -179,7 +179,7 @@ var autoBits = function(opts) {
 	*/
 	var log = function() {
 		if (options.debug && window.console && window.console.log)
-			console.log('[autobits] ' + arguments);
+			console.log('[autobits] ', arguments);
 	};
 
 	/**
