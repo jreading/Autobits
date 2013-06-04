@@ -40,107 +40,103 @@ Randomize function, remapping and bitshifting
 
 var autoBits = function(opts) {
 
-	if (this instanceof autoBits) {
+	this.isSet = function(value) {
+		if (options.map.indexOf(value) < 0) {
+			log('isSet: ' + value + ' not found in map');
+			return this;
+		} else {
+			var binaryVal = getBinary(options.map.indexOf(value));
+			return (binaryVal & options.bits) > 0;
+		}
+	};
 
-		var defaults = {
-			bits: 0,
-			map: [],
-			debug: false
-		};
+	this.getBooleans = function() {
+		var booleanArr = [];
+		var bit;
+		for (var i=0; i < options.map.length; i++) {
+			bit = (getBinary(i) & options.bits) ? 1 : 0;
+			booleanArr.push(bit);
+		}
+		return booleanArr;
+	};
 
-		var options = extend({}, defaults, opts);
+	this.getBits = function() {
+		log('bits: ' + options.bits );
+		return options.bits;
+	};
 
-		this.isSet = function(value) {
-			if (options.map.indexOf(value) < 0) {
-				log('isSet: ' + value + ' not found in map');
+	this.addBit = function(value) {
+		if (options.map.indexOf(value) < 0) {
+			log('addBits: ' + value + ' not found in map');
+			return this;
+		} else {
+			var binaryVal = getBinary(options.map.indexOf(value));
+			if ((binaryVal & options.bits) > 0) {
+				log('addBits: ' + value + ' bit exists already in map. ' + options.bits);
 				return this;
 			} else {
-				var binaryVal = getBinary(options.map.indexOf(value));
-				return (binaryVal & options.bits) > 0;
+				options.bits += binaryVal;
+				log('addBits: ' + binaryVal + ' set');
+				return options.bits;
 			}
-		};
+		}
+	};
 
-		this.getBooleans = function() {
-			var booleanArr = [];
-			var bit;
-			for (var i=0; i < options.map.length; i++) {
-				bit = (getBinary(i) & options.bits) ? 1 : 0;
-				booleanArr.push(bit);
-			}
-			return booleanArr;
-		};
-
-		this.getBits = function() {
-			log('bits: ' + options.bits );
-			return options.bits;
-		};
-
-		this.addBit = function(value) {
-			if (options.map.indexOf(value) < 0) {
-				log('addBits: ' + value + ' not found in map');
+	this.removeBit = function(value) {
+		if (options.map.indexOf(value) < 0) {
+			log('removeBits: ' + value + ' not found in map');
+			return this;
+		} else {
+			var binaryVal = getBinary(options.map.indexOf(value));
+			if (!(binaryVal & options.bits)) {
+				log('removeBits: ' + value + ' bit doesn\'t exist in map. ' + options.bits);
 				return this;
 			} else {
-				var binaryVal = getBinary(options.map.indexOf(value));
-				if ((binaryVal & options.bits) > 0) {
-					log('addBits: ' + value + ' bit exists already in map. ' + options.bits);
-					return this;
-				} else {
-					options.bits += binaryVal;
-					log('addBits: ' + binaryVal + ' set');
-					return options.bits;
+				options.bits -= binaryVal;
+				log('removeBits: ' + binaryVal + ' removed');
+				return options.bits;
+			}
+		}
+	};
+
+	this.randomize = function() {
+		log('randomize: ' + options.bits);
+		return options.bits;
+	};
+
+	this.clear = function() {
+		options.bits = 0;
+		return options.bits;
+	};
+
+	var getBinary = function(value) {
+		return Math.pow(2,value);
+	};
+
+	var log = function() {
+		if (options.debug && window.console && window.console.log)
+			window.console.log('[jquery.autobits] ' + Array.prototype.join.call(arguments,''));
+	};
+
+	var extend = function(obj) {
+		var args = Array.prototype.slice.call(arguments, 1);
+		for (var i = 0; i < args.length;i++) {
+			if (args[i]) {
+				for (var prop in args[i]) {
+					obj[prop] = args[i][prop];
 				}
 			}
-		};
+		}
+		return obj;
+	};
 
-		this.removeBit = function(value) {
-			if (options.map.indexOf(value) < 0) {
-				log('removeBits: ' + value + ' not found in map');
-				return this;
-			} else {
-				var binaryVal = getBinary(options.map.indexOf(value));
-				if (!(binaryVal & options.bits)) {
-					log('removeBits: ' + value + ' bit doesn\'t exist in map. ' + options.bits);
-					return this;
-				} else {
-					options.bits -= binaryVal;
-					log('removeBits: ' + binaryVal + ' removed');
-					return options.bits;
-				}
-			}
-		};
+	var defaults = {
+		bits: 0,
+		map: [],
+		debug: false
+	};
 
-		this.randomize = function() {
-			log('randomize: ' + options.bits);
-			return options.bits;
-		};
+	var options = extend({}, defaults, opts);
 
-		this.clear = function() {
-			options.bits = 0;
-			return options.bits;
-		};
-
-		var getBinary = function(value) {
-			return Math.pow(2,value);
-		};
-
-		var log = function() {
-			if (options.debug && window.console && window.console.log)
-				window.console.log('[jquery.autobits] ' + Array.prototype.join.call(arguments,''));
-		};
-
-		var extend = function(obj) {
-			var args = slice.call(arguments, 1);
-			for (var i = 0; i < args.length;i++) {
-				if (args[i]) {
-					for (var prop in args[i]) {
-						obj[prop] = args[i][prop];
-					}
-				}
-			}
-			return obj;
-		};
-	} else {
-		return new autoBits(opts);
-	}
 };
 

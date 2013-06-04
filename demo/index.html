@@ -6,11 +6,11 @@
 		<script src="js/autobits.js" type="text/javascript"></script>
 		<link rel="stylesheet" type="text/css" href="autobits.css" />
 		<script type="text/javascript">
-			var optimusPrime = autoBits({
+			var optimusPrime = new autoBits({
 				map: ["namedValue0", "namedValue1", "namedValue2", "namedValue3", "namedValue4", "namedValue5", "namedValue6", "namedValue7", "namedValue8", "namedValue9", "namedValue10", "namedValue11", "namedValue12"],
 				bits:0
 			});
-			var bumbleBee = autoBits({
+			var bumbleBee = new autoBits({
 				map: ["namedValue0", "namedValue1", "namedValue2", "namedValue3", "namedValue4", "namedValue5", "namedValue6", "namedValue7", "namedValue8", "namedValue9", "namedValue10", "namedValue11", "namedValue12", "namedValue13", "namedValue14", "namedValue15", "namedValue16", "namedValue17", "namedValue18", "namedValue19", "namedValue20", "namedValue21", "namedValue22", "namedValue23", "namedValue24", "namedValue25", "namedValue26", "namedValue27", "namedValue28", "namedValue29", "namedValue30"],
 				debug:true,
 				bits : 1073741832
@@ -62,7 +62,7 @@ optimusPrime = new autoBits({map: ["namedValue0", ..., "namedValue30"]});
 		<h2>Demos</h2>
 
 <pre>
-optimusPrime = autoBits({
+optimusPrime = new autoBits({
 	map: ["namedValue0", "namedValue1", "namedValue2", "namedValue3", "namedValue4", "namedValue5", "namedValue6", "namedValue7", "namedValue8", "namedValue9", "namedValue10", "namedValue11", "namedValue12"]
 });
 </pre>
@@ -77,7 +77,7 @@ optimusPrime = autoBits({
 </div>
 <br />
 <pre>
-bumbleBee = autoBits({
+bumbleBee = new autoBits({
 	map: ["namedValue0", "namedValue1", "namedValue2", "namedValue3", "namedValue4", "namedValue5", "namedValue6", "namedValue7", "namedValue8", "namedValue9", "namedValue10", "namedValue11", "namedValue12", "namedValue13", "namedValue14", "namedValue15", "namedValue16", "namedValue17", "namedValue18", "namedValue19", "namedValue20", "namedValue21", "namedValue22", "namedValue23", "namedValue24", "namedValue25", "namedValue26", "namedValue27", "namedValue28", "namedValue29", "namedValue30"],
 	bits : 1073741832, //comes from DB, cookie, twitter, whatever
 	debug: true //look in your console

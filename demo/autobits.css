@@ -32,7 +32,7 @@ pre,code {
 	padding: 20px;
 	font: 14px "Courier New", Courier, monospace;
 	width: auto;
-	-webkit-font-smoothing: none;
+	-webkit-font-smoothing: subpixel-antialiased;
 	overflow-y: hidden;
 	overflow-x: auto;
 }

@@ -1,0 +1,12 @@
+{
+  "name" : "Autobits.js",
+  "description" : "A simple binary (base 2) bitwise library for javascript",
+  "homepage" : "http://autobits.resoancemultimedia.com",
+  "keywords" : ["bitwise", "bits"],
+  "author" : "John Reading <john@resonancemultimedia.com>",
+  "contributors" : [],
+  "dependencies" : [],
+  "repository" : {"type": "git", "url": "git://github.com/jreading/Autobits.git"},
+  "main" : "autobits.js",
+  "version" : "1.2"
+}
