@@ -1,26 +1,43 @@
 /**
- * jQuery AutoBits Plugin
- *
- * autoBits.js is licensed under a Creative Commons Attribution-Share Alike 3.0 United States License.
- * http://creativecommons.org/licenses/by-sa/3.0/us/
- *
- * Date: 4/19/10  
- *
- * @author John Reading - Resonance Multimedia LLC
- * @version 1.1 
- * @see jQuery v1.2.6 or later
- *
- * @projectDescription autoBits.js is a simple binary (base 2) bitwise plugin for jQuery. You can use it to send lots an lots of boolean values in a little package. Requires jQuery v1.2.6 or later
- *
- *
- * TODO
- * Randomize function, remapping and bitshifting
- *
- *
- * @type Object
- * @example optimusPrime = autoBits();
- * @param   {Object}        options   bits, map, debug
- */
+AutoBits.js
+
+autoBits.js is licensed under The MIT license
+
+The MIT License (MIT)
+
+Copyright (c) 2013 ResonanceMultimedia LLC
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+
+@author John Reading - Resonance Multimedia LLC
+@version 1.2
+
+@projectDescription autoBits.js is a simple binary (base 2) bitwise library. You can use it to send lots an lots of boolean values in a little package. No dependencies.
+
+TODO
+Randomize function, remapping and bitshifting
+
+@type Object
+@example optimusPrime = autoBits();
+@param   {Object}        options   bits, map, debug
+*/
+
 var autoBits = function(opts) {
 
 	if (this instanceof autoBits) {
@@ -30,8 +47,8 @@ var autoBits = function(opts) {
 			map: [],
 			debug: false
 		};
-		var options = $.extend({}, defaults, opts);
 
+		var options = extend({}, defaults, opts);
 
 		this.isSet = function(value) {
 			if (options.map.indexOf(value) < 0) {
@@ -44,9 +61,11 @@ var autoBits = function(opts) {
 		};
 
 		this.getBooleans = function() {
-			var booleanArr = new Array;
+			var booleanArr = [];
+			var bit;
 			for (var i=0; i < options.map.length; i++) {
-				getBinary(i) & options.bits ? booleanArr.push(true) : booleanArr.push(false);
+				bit = (getBinary(i) & options.bits) ? 1 : 0;
+				booleanArr.push(bit);
 			}
 			return booleanArr;
 		};
@@ -107,6 +126,18 @@ var autoBits = function(opts) {
 		var log = function() {
 			if (options.debug && window.console && window.console.log)
 				window.console.log('[jquery.autobits] ' + Array.prototype.join.call(arguments,''));
+		};
+
+		var extend = function(obj) {
+			var args = slice.call(arguments, 1);
+			for (var i = 0; i < args.length;i++) {
+				if (args[i]) {
+					for (var prop in args[i]) {
+						obj[prop] = args[i][prop];
+					}
+				}
+			}
+			return obj;
 		};
 	} else {
 		return new autoBits(opts);
