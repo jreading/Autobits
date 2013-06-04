@@ -28,12 +28,8 @@ THE SOFTWARE.
 @author John Reading - Resonance Multimedia LLC
 @version 1.2
 
-@projectDescription autoBits.js is a simple binary (base 2) bitwise library. You can use it to send lots an lots of boolean values in a little package. No dependencies.
+autoBits.js is a simple binary (base 2) bitwise library. You can use it to send lots an lots of boolean values in a little package. No dependencies.
 
-TODO
-Randomize function, remapping and bitshifting
-
-@type Object
 @example optimusPrime = autoBits();
 @param   {Object}        options   bits, map, debug
 */
@@ -222,4 +218,3 @@ var autoBits = function(opts) {
 	var options = extend({}, defaults, opts);
 
 };
-
