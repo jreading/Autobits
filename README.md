@@ -8,16 +8,18 @@ A simple binary (base 2) bitwise library for javascript.
 
 ----------------------------------------
 
-### What it does:
+What it does:
+-----------------
 
 You can use it to send lots an lots of boolean values in a little package. You can store 31 values per instance and use in a cookie, through twitter, or in a single integer column in a database.
 
 http://autobits.resonancemultimedia.com/ 
 
-### API:
-
-isSet()
+API:
 -------
+
+### isSet()
+
 Returns whether or not a bit is set in an integer.
 
 
@@ -26,8 +28,8 @@ Returns whether or not a bit is set in an integer.
 
 *Boolean*,  Bit is set.
 
-getBooleans()
--------------
+### getBooleans()
+
 Returns an array of bit values. Length determined by map length.
 
 
@@ -36,8 +38,8 @@ Returns an array of bit values. Length determined by map length.
 
 *Array*,  Array of bit values.
 
-getBits()
----------
+### getBits()
+
 Returns bit integer.
 
 
@@ -46,8 +48,8 @@ Returns bit integer.
 
 *integer*,  Bit integer.
 
-addBit()
---------
+### addBit()
+
 Adds a bit to integer based on named value from map.
 
 
@@ -56,8 +58,8 @@ Adds a bit to integer based on named value from map.
 
 *autobits*,  Returns autobits instance if bit already exists or not found in map.
 
-removeBit()
------------
+### removeBit()
+
 Removes a bit from integer based on named value from map.
 
 
@@ -66,8 +68,8 @@ Removes a bit from integer based on named value from map.
 
 *autobits*,  Returns autobits instance if bit doesn't exists or not found in map.
 
-randomize()
------------
+### randomize()
+
 TODO: Randomizes the bits based on the map.
 
 
@@ -76,8 +78,8 @@ TODO: Randomizes the bits based on the map.
 
 *integer*,  Returns bit integer.
 
-remap()
--------
+### remap()
+
 TODO: Remaps the bits based on the bits entered.
 
 
@@ -86,8 +88,8 @@ TODO: Remaps the bits based on the bits entered.
 
 *integer*,  Returns bit integer.
 
-clear()
--------
+### clear()
+
 Clears the bit integer.
 
 
@@ -97,7 +99,8 @@ Clears the bit integer.
 *integer*,  Returns bit value.
 
 
-### Thanks
+Thanks
+-------
 
 Rebecca Murphey
 
